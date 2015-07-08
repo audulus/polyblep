@@ -40,7 +40,7 @@ namespace stmlib {
 
 // The parameters (like frequency, PW) which are provided once per block
 // can optionally be linearly interpolated from block to block.
-template<bool>
+template<bool enable_linear_interpolation>
 class ControlRateSource {
  public:
   ControlRateSource(float value, float* state, size_t n) { }
