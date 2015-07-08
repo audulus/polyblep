@@ -24,7 +24,7 @@
 //
 // -----------------------------------------------------------------------------
 //
-// VA-style oscillator (with polyThisBlepSample).
+// VA-style oscillator.
 
 #ifndef STMLIB_DSP_VA_OSCILLATOR_H_
 #define STMLIB_DSP_VA_OSCILLATOR_H_
