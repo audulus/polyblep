@@ -65,7 +65,7 @@ int main(void) {
   for (size_t i = 0; i < n; ++i) {
     float out;
     osc.Render<false>(
-        Mix(float(i)/n, 100.00f, 15000.f) / 44100,  // master
+        Mix(float(i)/n, 100.00f, 15000.f) / kSampleRate,  // master
         0.5f,  // pulse-width
         0.0f,  // shape: 0.0 for saw, 1.0 for square
         &out, 1);
