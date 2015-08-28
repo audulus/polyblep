@@ -1,1 +1,7 @@
 Experimental VA oscillator code based on polyBLEP. Hardsync, PWM, waveform continuously variable between sawtooth and square.
+
+To test:
+make -f test/makefile
+./polyblep_test
+
+Outputs: sample.wav and sweep.wav
