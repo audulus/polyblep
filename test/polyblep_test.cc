@@ -35,6 +35,10 @@ const size_t kSampleRate = 96000;
 const size_t kAudioBlockSize = 24;
 const size_t kSampleDuration = 10;
 
+float Mix(float s, float a, float b) {
+    return (1-s)*a + s*b;
+}
+
 int main(void) {
   Oscillator osc;
   osc.Init();
@@ -53,4 +57,19 @@ int main(void) {
         out, kAudioBlockSize);
     wav_writer.Write(out, kAudioBlockSize);
   }
+
+  WavWriter wav_writer2(1, kSampleRate, kSampleDuration);
+  wav_writer2.Open("sweep.wav");
+
+  const int n = kSampleRate * kSampleDuration;
+  for (size_t i = 0; i < n; ++i) {
+    float out;
+    osc.Render<false>(
+        Mix(float(i)/n, 100.00f, 15000.f) / 44100,  // master
+        0.5f,  // pulse-width
+        0.0f,  // shape: 0.0 for saw, 1.0 for square
+        &out, 1);
+    wav_writer2.Write(&out, 1);
+  }
+
 }
